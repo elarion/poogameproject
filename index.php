@@ -31,7 +31,7 @@ if (!array_key_exists($action, $config['routes'])) {
     die ("L'action ".$action." n'existe pas. <br /> <a href='index.php'>retour &agrave; l'accueil</a>");
 }
 
-// APPEL DU CONTROLLER
+// Instanciation du controller et appel des methodes
 $method = $action.'Action';
 $controller = ucfirst($config['routes'][$action]).'Controller';
 ${$config['routes'][$action]} = NULL;
@@ -43,6 +43,13 @@ if (!is_object(${$config['routes'][$action]})) {
 if (method_exists(${$config['routes'][$action]}, $method)) {	
 	${$config['routes'][$action]}->$method();
 }
+
+// Init du template
+if (!empty($action)) {
+	$template = $action.'.php';
+}
+
+include_once('./view/main.php');
 
 $u = User::find(array('id' => 1 ));
 

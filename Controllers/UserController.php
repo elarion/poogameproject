@@ -12,9 +12,9 @@
 
 				foreach ($players as $key => $player) {
 					if ($player != NULL) {
-						
+
 					} else {
-						
+
 					}
 				}
 			} else {

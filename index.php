@@ -23,7 +23,7 @@ $action = $config['default']['action'];
 
 // Router
 if (!empty($_GET['action'])) {
-    $action = $_GET['action'];
+	$action = $_GET['action'];
 }
 
 // Vérification de l'existence de l'action
@@ -54,6 +54,3 @@ include_once('./view/main.php');
 // $u = User::find(array('id' => 1 ));
 
 // var_dump($u);
-
-
-

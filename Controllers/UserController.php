@@ -4,6 +4,6 @@
 	{
 		public function authAction()
 		{
-			echo ("test");
+			// echo ("test");
 		}
 	}

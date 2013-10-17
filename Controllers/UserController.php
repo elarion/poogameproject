@@ -6,15 +6,16 @@
 		{
 			if (!empty($_POST['pseudo'][0]) && !empty($_POST['pseudo'][1])) {
 				$players = array(
-					"playerOne" => User::Find(array("pseudo" => $_POST['pseudo'][0])),
-					"playerTwo" => User::Find(array("pseudo" => $_POST['pseudo'][1])),
+					User::Find(array("pseudo" => $_POST['pseudo'][0])),
+					User::Find(array("pseudo" => $_POST['pseudo'][1])),
 				);
 
 				foreach ($players as $key => $player) {
-					if ($player != NULL) {
+					if (!empty($player)) {
 
 					} else {
-
+						$u = new User(array("pseudo" => $_POST['pseudo'][$key]));
+						var_dump($u);
 					}
 				}
 			} else {

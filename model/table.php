@@ -178,22 +178,26 @@ abstract class Table
                     $class->hydrate();
                     $this->fields[$field['Field']]['value'][] = $instance;
                 }
-                elseif (strpos($this->relations[$relation], $relation."_has_".$this->tableName) === 0) {
-                    $this->collections[$relation] = $this->collection($this->relations[$relation]);
+                elseif (strpos($this->relation[$relation], $relation."_has_".static::$tableName) === 0) {
+                    $this->collections[$relation] = $this->collection($this->relation[$relation]['table'], $this->relation[$relation]['model']);
+                    die('tot');
                 }
             }
 
     }
 
 
-    private function collection($table) {
+    private function collection($table, $model = '') {
+        if ($model !== '') $field = ",".$model;
         $rel_table = substr($table, 0, strpos($table, "_"));
         $rel_table = substr($table,0,-1);
-        $q = "SELECT id FROM ".$table."WHERE ".$field." = ".$this->$primaryKey;
+        $q = "SELECT id".$field." FROM ".$table."WHERE ".$field." = ".$this->$primaryKey;
         $data = myFetchAllAssoc($q);
         $collection = array();
         foreach ($data as $field) {
-            $instance = new $rel_table;
+            if ($model != '') $class = $model;
+            else $class = $rel_table;
+            $instance = new $class;
             $instance->$primaryKey = $field;
             $instance->hydrate();
             $collection[] = $instance;

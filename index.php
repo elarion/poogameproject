@@ -44,7 +44,8 @@ if (method_exists(${$config['routes'][$action]}, $method)) {
 	${$config['routes'][$action]}->$method();
 }
 
-$u = User::find(array('id' => 1 ));
+$u = User::find(array('id' => 9));
+$u->with('champions');
 
 var_dump($u);
 

@@ -3,13 +3,14 @@
 abstract class Champion extends Table {
     protected $error = array();
     protected $protect = FALSE;
+    protected $buff = array();
     protected static $tableName = 'champions';
     public function __construct( array $fields ) {
 
         $this->relation = array('weapons' => 'weapons_has_champions');
         $this->fillable = array('id', 'name','health','strength', 'intelligence','mana', 'classe' );
 
-        $param = array_map(function($n, $m){return $n+$m;}, $fields, array('strength' => 10, 'intelligence' => 30, 'health_point' => 250));
+        $param = array_map(function($n, $m){return $n+$m;}, $fields, array('strength' => 100, 'intelligence' => 100, 'health' => 500));
         $param = array_combine(array_keys($fields), $param);
         return parent::__construct($param);
 
@@ -33,8 +34,9 @@ abstract class Champion extends Table {
                 foreach ($this->collections['weapons'] as $weapon) {
                     $computed_val += $weapon->$abilities."_bonus";
                 }
-
             }
+            if (!empty($this->buff[$abilities])) $computed_val += $this->buff[$abilities];
+            if (!empty($this->debuff[$abilities])) $computed_val += $this->debuff[$abilities];
             return $computed_val;
         }
         else {
@@ -43,6 +45,13 @@ abstract class Champion extends Table {
     }
 
 
+    public function add_buff(array $fields) {
+       $this->buff = array_merge($this->buff, $fields);
+    }
+
+    public function get_buff ($abilities) {
+        return (isset($this->buff[$abilities]) ? $this->buff[$abilities] : 0);
+    }
     public function attack(Champion $ennemy) {
         $damages = $this->computed_abilities('strength');
         $ennemy->receive_attack($damages);
@@ -61,7 +70,8 @@ abstract class Champion extends Table {
     }
 
     public function heal() {
-
+        $intel = $this->computed_abilities('intelligence')  ;
+        $this->fields['health']['value'] += $intel;
     }
 
     public function setName($name){}

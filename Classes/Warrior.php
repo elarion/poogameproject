@@ -2,7 +2,7 @@
 Class Warrior extends Champion {
 
     function __construct( ) {
-        parent::__construct(array('strength' => 30, 'intelligence' => -30, 'health' => 100, 'mana' => 0));
+        parent::__construct(array('strength' => 30, 'intelligence' => -30, 'health' => 100));
 
 
     }

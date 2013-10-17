@@ -2,7 +2,7 @@
 
 abstract class Table
 {
-    protected $tableName;
+    protected static $tableName;
     protected $primaryKey = 'id';
     protected $collections = array();
     protected $fields = array();
@@ -11,7 +11,7 @@ abstract class Table
 
     public function __construct(Array $fields = array())
     {
-        if (!empty($this->tableName))
+        if (!empty(static::$tableName))
             $this->detectFields();
         else
             die('Table: table name is required');
@@ -48,7 +48,7 @@ abstract class Table
 
     private function detectFields()
     {
-        $data = myFetchAllAssoc("SHOW COLUMNS FROM `".$this->tableName."`");
+        $data = myFetchAllAssoc("SHOW COLUMNS FROM `".static::$tableName."`");
 
         foreach($data AS $field)
         {
@@ -70,7 +70,7 @@ abstract class Table
         if (empty($this->$primaryKey))
             die('Trying to delete without having a primary key value');
 
-        $query = "delete from `".$this->tableName."`".
+        $query = "delete from `".static::$tableName."`".
             "where `".$this->primaryKey."`='".$this->$primaryKey."'";
 
         myQuery($query);
@@ -86,7 +86,7 @@ abstract class Table
             var_dump($nbFields);
             $counter = 0;
 
-            $query = "UPDATE `".$this->tableName."` SET";
+            $query = "UPDATE `".static::$tableName."` SET";
 
             foreach($this->fields AS $field)
             {
@@ -110,7 +110,7 @@ abstract class Table
             $nbFields = $this->count_save_field($this->fields);
             $counter = 0;
 
-            $query = "INSERT INTO `".$this->tableName."` (";
+            $query = "INSERT INTO `".static::$tableName."` (";
 
             foreach($this->fields AS $field)
             {
@@ -204,7 +204,7 @@ abstract class Table
         return in_array($field, $this->relation);
     }
 
-    public function Find($unique) {
+    public static function Find($unique) {
         if (is_array($unique)) {
             foreach ($unique as $field => $value) {
                 $key = $field;
@@ -215,9 +215,11 @@ abstract class Table
             $key = "id";
             $val = $unique;
         }
-        $q = "SELECT * FROM ".$this->tableName." WHERE ". $key ." = ". $val;
+        $q = "SELECT * FROM ".static::$tableName." WHERE ". $key ." = ". $val;
+        var_dump(static::$tableName);
         $data = myFetchAssoc($q);
-        $class = substr($this->tableName, 0 , -1);
+        if ($data == NULL) return NULL;
+        $class = substr(static::$tableName, 0 , -1);
         $instance = new $class($data);
         return $instance;
 

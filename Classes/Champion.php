@@ -7,9 +7,9 @@ abstract class Champion extends Table {
     public function __construct( array $fields ) {
 
         $this->relation = array('weapons' => 'weapons_has_champions');
-        $this->fillable = array('id', 'name','health','strength', 'intelligence','mana', 'classe' );
+        $this->fillable = array('id', 'name', 'health', 'strength', 'intelligence', 'classe');
 
-        $param = array_map(function($n, $m){return $n+$m;}, $fields, array('strength' => 10, 'velocity' => 30, 'intelligence' => 30, 'health_point' => 250));
+        $param = array_map(function($n, $m){return $n+$m;}, $fields, array('strength' => 100, 'intelligence' => 100, 'health_point' => 500));
         $param = array_combine(array_keys($fields), $param);
         return parent::__construct($param);
 
@@ -41,7 +41,6 @@ abstract class Champion extends Table {
             die('No value for this abitlites');
         }
     }
-
 
     public function attack(Champion $ennemy) {
         $damages = $this->computed_abilities('strength');

@@ -1,8 +1,8 @@
 <?php
 function instance ($class) {
 	$paths = array("classes" => "./Classes/".$class.".php",
-				   "models" => "./Models/".$class.".php",
-				   "interfaces" => "./interfaces/".$class.".php",
+				   "models" => "./model/".strtolower($class).".php",
+				   "interfaces" => "./Interfaces/".$class.".php",
 				   "controllers" => "./Controllers/".$class.".php"
 
 	);
@@ -17,7 +17,6 @@ spl_autoload_register('instance');
 
 require_once 'dbtools.php';
 require_once 'config.php';
-require_once 'model/table.php';
 
 // Valeur de l'action par défaut
 $action = $config['default']['action'];

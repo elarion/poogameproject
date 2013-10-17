@@ -24,6 +24,8 @@ abstract class Champion extends Table {
 
     public function add_weapons(Weapon $weapon) {
        $this->collections['weapons'][] = $weapon;
+        if (!isset($weapon->id)) $weapon->save();
+
 
     }
 

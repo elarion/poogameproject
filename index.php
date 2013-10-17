@@ -1,7 +1,7 @@
 <?php
 function instance ($class) {
-	$paths = array("classes" => "./Classes/".$class.".php",
-				   "models" => "./model/".strtolower($class).".php",
+	$paths = array("classes" => "./Classes/".ucfirst($class).".php",
+				   "model" => "./model/".strtolower($class).".php",
 				   "interfaces" => "./Interfaces/".$class.".php",
 				   "controllers" => "./Controllers/".$class.".php"
 
@@ -23,7 +23,7 @@ $action = $config['default']['action'];
 
 // Router
 if (!empty($_GET['action'])) {
-    $action = $_GET['action'];
+	$action = $_GET['action'];
 }
 
 // Vérification de l'existence de l'action
@@ -51,9 +51,6 @@ if (!empty($action)) {
 
 include_once('./view/main.php');
 
-// $u = User::find(array('id' => 1 ));
-
-// var_dump($u);
-
-
-
+$u = User::find(array('id' => 9 ));
+$u->with('champions');
+var_dump($u);

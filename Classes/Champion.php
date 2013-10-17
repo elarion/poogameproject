@@ -9,7 +9,7 @@ abstract class Champion extends Table {
         $this->relation = array('weapons' => 'weapons_has_champions');
         $this->fillable = array('id', 'name','health','strength', 'intelligence','mana', 'classe' );
 
-        $param = array_map(function($n, $m){return $n+$m;}, $fields, array('strength' => 10, 'velocity' => 30, 'intelligence' => 30, 'health_point' => 250));
+        $param = array_map(function($n, $m){return $n+$m;}, $fields, array('strength' => 10, 'intelligence' => 30, 'health_point' => 250));
         $param = array_combine(array_keys($fields), $param);
         return parent::__construct($param);
 

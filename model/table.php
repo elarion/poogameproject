@@ -215,7 +215,7 @@ abstract class Table
             $key = "id";
             $val = $unique;
         }
-        $q = "SELECT * FROM ".static::$tableName." WHERE ". $key ." = ". $val;
+        $q = "SELECT * FROM ".static::$tableName." WHERE ". $key ." = '". $val . "'";
         var_dump(static::$tableName);
         $data = myFetchAssoc($q);
         if ($data == NULL) return NULL;

@@ -16,13 +16,13 @@
 </div>
 <div id="form_wrapper">
     <div class="center">
-        <div class="player" id="player1">
-            <form action="?action=auth">
+        <form action="?action=auth" method="post">
+            <div class="player" id="player1">
                 <table>
                     <tr>
                         <td class="form_subtitle">Choisis ton pseudo</td>
                         <td>
-                            <input type="text" name="pseudo"/>
+                            <input type="text" name="pseudo[]"/>
                         </td>
                     </tr>
                     <tr>
@@ -34,15 +34,13 @@
                         </td>
                     </tr>
                 </table>
-            </form>
-        </div>
-        <div class="player player2">
-            <form action="?action=auth">
+            </div>
+            <div class="player player2">
                 <table>
                     <tr>
                         <td class="form_subtitle">Choisis ton pseudo</td>
                         <td>
-                            <input type="text" name="pseudo"/>
+                            <input type="text" name="pseudo[]"/>
                         </td>
                     </tr>
                     <tr>
@@ -54,8 +52,11 @@
                         </td>
                     </tr>
                 </table>
-            </form>
-        </div>
+            </div>
+            <div>
+                <input type="submit" value="START" />
+            </div>
+        </form>
         <div class="clear"></div>
     </div>
     <div class="clear"></div>

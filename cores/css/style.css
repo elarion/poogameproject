@@ -48,12 +48,12 @@ span.player
     color: #E30613;
 }
 
-.player form table tr:first-child td
+.player table tr:first-child td
 {
     padding-bottom: 10px;
 }
 
-.player form table input
+.player table input
 {
     border: 0;
     height: 30px;
@@ -61,7 +61,7 @@ span.player
     padding-left: 5px;
 }
 
-.player form table select
+.player table select
 {
     border: 0;
     height: 30px;

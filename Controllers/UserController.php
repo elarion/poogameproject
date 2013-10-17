@@ -5,12 +5,17 @@
 		public function authAction()
 		{
 			if (!empty($_POST) && !empty($_POST['pseudo'])) {
-				$user = User::Find(array("pseudo" => $_POST['pseudo']));
+				$players = array(
+					"playerOne" => User::Find(array("pseudo" => $_POST['pseudo'][0])),
+					"playerTwo" => User::Find(array("pseudo" => $_POST['pseudo'][1])),
+				);
 
-				if ($user != NULL) {
+				foreach ($players as $key => $player) {
+					if ($player != NULL) {
 
-				} else {
+					} else {
 
+					}
 				}
 			}
 		}

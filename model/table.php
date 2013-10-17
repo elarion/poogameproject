@@ -102,7 +102,7 @@ abstract class Table
                 }
             }
 
-            $query .= "WHERE `".$pk."` = '".intval($this->$fields[$pk]['value'])."'";
+            $query .= "WHERE `".$pk."` = '".intval($this->fields[$pk]['value'])."'";
             myQuery($query);
         }
         else // INSERT
@@ -146,7 +146,7 @@ abstract class Table
             $query .= ")";
             myQuery($query);
             $insert_id = myLastInsertId();
-            $this->$pk = $insert_id;
+            $this->fields[$pk]['value']= $insert_id;
         }
     }
 
@@ -226,7 +226,7 @@ abstract class Table
     public function save_collections($col) {
             if ( $collec = $this->collections[$col]) {
                 //var_dump($this->relations);
-
+                if (empty($this->fields[$this->primaryKey]['value'])) $this->save();
                 $pivot = $this->relation[$col];
                 $fk = substr($pivot, strrpos($pivot,"_"),strlen($pivot));
                 $fk = substr($fk,0,-1);

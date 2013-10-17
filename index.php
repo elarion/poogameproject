@@ -51,8 +51,12 @@ if (!empty($action)) {
 
 include_once('./view/main.php');
 
-$u = User::find(array('id' => 9 ));
-$u->with('champions');
+$u = new User(array('pseudo' => 'portier'));
+$u->save();
+$champions = new Warrior();
+$champions->save();
+$u->add_champion($champions);
+$u->save_collections('champions');
 var_dump($u);
 
 

@@ -1,12 +1,13 @@
 <?php
-
-class Warrior extends Champion {
+Class Warrior extends Champion {
 
     function __construct()
     {
         parent::__construct(array('strength' => 60, 'intelligence' => -50, 'health' => 0));
         $this->fill(array('name' => 'Riven'));
+        $this->save();
         $this->add_weapons(new Weapon(array('name' => 'Axe of doom','strength_bonus' => 10)));
+        $this->save_collections('weapons');
     }
 
     public function secondaryComp(Champion $enemy)
@@ -18,7 +19,7 @@ class Warrior extends Champion {
 
 	public function mainComp(Champion $enemy)
     {
-        $dmg = $this->computed_abilities('strength') + 10;
+        $dmg = computed_abilities('strength') + 10;
 
         $this->receive_attack(20);
         $enemy->receive_attack($dmg);

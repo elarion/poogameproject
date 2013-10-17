@@ -8,7 +8,7 @@ abstract class Champion extends Table {
     public function __construct( array $fields ) {
 
         $this->relation = array('weapons' => 'weapons_has_champions');
-        $this->fillable = array('id', 'name','health','strength', 'intelligence','mana', 'classe' );
+        $this->fillable = array('id', 'name', 'health', 'strength', 'intelligence', 'classe');
 
         $param = array_map(function($n, $m){return $n+$m;}, $fields, array('strength' => 100, 'intelligence' => 100, 'health' => 500));
         $param = array_combine(array_keys($fields), $param);
@@ -34,6 +34,7 @@ abstract class Champion extends Table {
                 foreach ($this->collections['weapons'] as $weapon) {
                     $computed_val += $weapon->$abilities."_bonus";
                 }
+
             }
             if (!empty($this->buff[$abilities])) $computed_val += $this->buff[$abilities];
             if (!empty($this->debuff[$abilities])) $computed_val += $this->debuff[$abilities];

@@ -1,31 +1,25 @@
 <?php
 Class Warrior extends Champion {
 
-    function __construct( ) {
-        parent::__construct(array('strength' => 30, 'intelligence' => -30, 'health' => 100));
-
-
-    }
-
-    /*
-*	Add 20 strengh to the player
-*/
-    public function battleRoar(){
+    function __construct() {
+        parent::__construct(array('strength' => 60, 'intelligence' => -50, 'health' => 0));
+        $this->add_weapon(array('strength' => 10));
 
     }
 
-    /*
-    *	Remove [ computed strenghs] + 10 health point to the enemy
-    */
-	public function berserkSlam(Player $enemy){
-
+    public function secondaryComp(Champion $enemy)
+    {
+        $this->add_buff(array('strength' => 20));
+        $this->add_buff(array('intelligence' => -5));
+        $enemy->add_buff(array('strength' => -20));
     }
 
-	/*
-	*	Remove 10 velocity to the enemy
-	*/
-	public function bigStomp(Player $enemy){
+	public function mainComp(Champion $enemy)
+    {
+        $dmg = computed_abilities('strength') + 10;
 
+        $this->receive_attack(20);
+        $enemy->receive_attack($dmg);
     }
-
+    
 }

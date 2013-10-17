@@ -1,0 +1,84 @@
+@import "reset.css";
+
+.clear
+{
+    clear: both;
+    height: 0;
+    width: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+header
+{
+    padding: 30px 0;
+}
+
+header h1
+{
+    width: 489px;
+    height: 476px;
+    margin: auto;
+}
+
+#form_wrapper
+{
+    background-color: #3C3C3B;
+    padding: 10px;
+}
+
+.center
+{
+    width: 900px;
+    margin: 0 auto;
+}
+
+.player
+{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 450px;
+    float: left;
+}
+
+span.player
+{
+    display: block;
+    font-family: Impact, Arial, sans-serif;
+    color: #E30613;
+}
+
+.player table tr:first-child td
+{
+    padding-bottom: 10px;
+}
+
+.player table input
+{
+    border: 0;
+    height: 30px;
+    width: 245px;
+    padding-left: 5px;
+}
+
+.player table select
+{
+    border: 0;
+    height: 30px;
+    width: 250px;
+}
+
+.player2
+{
+    padding-left: 10px;
+}
+
+.form_subtitle
+{
+    width: 43%;
+    font-family: Arial, sans-serif;
+    font-variant: small-caps;
+    letter-spacing: 1px;
+    font-size: 14px;
+    color: #FFF;
+}

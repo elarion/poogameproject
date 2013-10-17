@@ -200,7 +200,7 @@ abstract class Table
             $instance = new $class;
             $instance->$primaryKey = $field;
             $instance->hydrate();
-            $collection[] = $field;
+            $collection[] = $instance;
         }
         return $collection;
     }
@@ -219,12 +219,11 @@ abstract class Table
             $key = "id";
             $val = $unique;
         }
-        $q = "SELECT * FROM ".static::$tableName." WHERE ". $key ." = ". $val;
-
+        $q = "SELECT * FROM ".static::$tableName." WHERE ". $key ." = '". $val . "'";
+        var_dump(static::$tableName);
         $data = myFetchAssoc($q);
         if ($data == NULL) return NULL;
         $class = substr(static::$tableName, 0 , -1);
-        var_dump($data);
         $instance = new $class($data);
         return $instance;
 

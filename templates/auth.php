@@ -28,8 +28,9 @@
                     <tr>
                         <td class="form_subtitle">Choisis ton personnage</td>
                         <td>
-                            <select name="" id="">
-                                <option value="">COUCOU</option>
+                            <select name="character[]" id="">
+                                <option value="Warrior">Warrior</option>
+                                <option value="Wizard">Wizard</option>
                             </select>
                         </td>
                     </tr>
@@ -46,8 +47,9 @@
                     <tr>
                         <td class="form_subtitle">Choisis ton personnage</td>
                         <td>
-                            <select name="" id="">
-                                <option value="">COUCOU</option>
+                            <select name="character[]" id="">
+                                <option value="Warrior">Warrior</option>
+                                <option value="Wizard">Wizard</option>
                             </select>
                         </td>
                     </tr>

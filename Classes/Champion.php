@@ -33,7 +33,7 @@ abstract class Champion extends Table {
         if (!empty($this->fields[$abilities]['value'])) {
             $computed_val = $this->fields[$abilities]['value'];
             if (!empty($this->collections['weapons'])) {
-                foreach ($this->collections['weapons'] as $weapon) {
+                foreach ($this->collections['weapons'] as $weapon){
                     $computed_val += $weapon->$abilities."_bonus";
                 }
 

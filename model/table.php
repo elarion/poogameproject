@@ -150,12 +150,21 @@ abstract class Table
         }
     }
 
-    public function hydrate()
+    public function hydrate( array $unique = NULL)
     {
         if (empty($this->fields[$this->primaryKey]['value']))
             die (get_called_class().': cannot hydrate without primary key value');
-
-        $q = "SELECT * FROM `".$this->tableName."` WHERE `".$this->primaryKey."` = ".intval($this->$primaryKey);
+        if ($unique !=== NULL) {
+            foreach ($unique as $key => $value) {
+                $field = $key;
+                $val = $value;
+            }
+        }
+        else {
+            $key = $this->primaryKey;
+            $val = .intval($this->fields[$primaryKey]['value']);
+        }
+        $q = "SELECT * FROM `".static::$tableName."` WHERE `".$field."` = "."'".$val."'";
         $data = myFetchAssoc($q);
 
         foreach ($this->fields as $field)

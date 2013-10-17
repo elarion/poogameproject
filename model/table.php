@@ -162,9 +162,9 @@ abstract class Table
         }
         else {
             $key = $this->primaryKey;
-            $val = .intval($this->$primaryKey);
+            $val = .intval($this->fields[$primaryKey]['value']);
         }
-        $q = "SELECT * FROM `".$this->tableName."` WHERE `".$field."` = "."'".$val."'";
+        $q = "SELECT * FROM `".static::$tableName."` WHERE `".$field."` = "."'".$val."'";
         $data = myFetchAssoc($q);
 
         foreach ($this->fields as $field)

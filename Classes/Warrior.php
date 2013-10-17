@@ -1,8 +1,8 @@
 <?php
-Class Warrior extends Player {
+Class Warrior extends Champion {
 
     function __construct( ) {
-        parent::__construct(array('strength' => 30, 'velocity' => 30, 'intelligence' => -30, 'health_point' => 100, 'mana' => 0));
+        parent::__construct(array('strength' => 30, 'intelligence' => -30, 'health' => 100, 'mana' => 0));
 
 
     }
@@ -17,14 +17,14 @@ Class Warrior extends Player {
     /*
     *	Remove [ computed strenghs] + 10 health point to the enemy
     */
-	public function berserkSlam(Player enemy){
+	public function berserkSlam(Player $enemy){
 
     }
 
 	/*
 	*	Remove 10 velocity to the enemy
 	*/
-	public function bigStomp(Player enemy){
+	public function bigStomp(Player $enemy){
 
     }
 

@@ -4,13 +4,19 @@ abstract class Champion extends Table {
     protected $error = array();
     public function __construct( array $fields ) {
         $this->tableName = 'champions';
-        $this->relation = array('weapons' => 'weapons_has_players');
-        $this->fillable = array('id', 'name','strength', 'velocity', 'intelligence', 'health_point','mana', 'classe' );
+        $this->relation = array('weapons' => 'weapons_has_champions');
+        $this->fillable = array('id', 'name','health','strength', 'intelligence','mana', 'classe' );
 
         $param = array_map(function($n, $m){return $n+$m;}, $fields, array('strength' => 10, 'velocity' => 30, 'intelligence' => 30, 'health_point' => 250));
         $param = array_combine(array_keys($fields), $param);
         return parent::__construct($param);
 
+    }
+
+    public function fill (array $fields) {
+        foreach ($fields as $key => $field) {
+            $this->fields[$key]['value'] = $field;
+        }
     }
 
     public function add_weapons(Weapon $weapon) {

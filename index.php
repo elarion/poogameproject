@@ -10,11 +10,12 @@ require_once 'model/table.php';
 $u = new User(array('pseudo' => 'haze'));
 $w = new Warrior();
 $hax = new Weapon(array('name' => 'last whisper', 'strength_bonus' => 50));
-
-$w->add_weapons($hax);
-$w->save_collections('weapons');
+$w->fill(array('name' => "Vayne" ));
 $u->add_champion($w);
 $u->save_collections('champions');
+$w->add_weapons($hax);
+$w->save_collections('weapons');
+
 var_dump($u);
 
 

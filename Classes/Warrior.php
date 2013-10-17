@@ -1,5 +1,5 @@
 <?php
-class Warrior extends Champion {
+Class Warrior extends Champion {
 
     function __construct()
     {
@@ -16,7 +16,7 @@ class Warrior extends Champion {
 
 	public function mainComp(Champion $enemy)
     {
-        $dmg = $this->computed_abilities('strength') + 10;
+        $dmg = computed_abilities('strength') + 10;
 
         $this->receive_attack(20);
         $enemy->receive_attack($dmg);

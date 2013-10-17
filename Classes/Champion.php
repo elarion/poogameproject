@@ -38,7 +38,7 @@ abstract class Champion extends Table {
             }
             if (!empty($this->buff[$abilities])) $computed_val += $this->buff[$abilities];
             if (!empty($this->debuff[$abilities])) $computed_val += $this->debuff[$abilities];
-            return $computed_val;
+            return (int) $computed_val;
         }
         else {
             die('No value for this abitlites');

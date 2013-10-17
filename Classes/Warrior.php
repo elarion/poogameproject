@@ -1,10 +1,10 @@
 <?php
 Class Warrior extends Champion {
 
-    function __construct() {
+    function __construct()
+    {
         parent::__construct(array('strength' => 60, 'intelligence' => -50, 'health' => 0));
-        $this->add_weapons(new Weapon(array('strength_bonus' => 10)));
-
+        $this->add_weapons(new Weapon(array('name' => 'Axe of doom','strength' => 10)));
     }
 
     public function secondaryComp(Champion $enemy)

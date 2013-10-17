@@ -14,8 +14,8 @@
 					if (!empty($player)) {
 
 					} else {
-						$u = new User(array("pseudo" => $_POST['pseudo'][$key]));
-						var_dump($u);
+						// $u = new User(array("pseudo" => $_POST['pseudo'][$key]));
+						// var_dump($u);
 					}
 				}
 			} else {

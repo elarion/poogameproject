@@ -1,5 +1,4 @@
 <?php
-
 Class Warrior extends Champion {
 
     function __construct() {

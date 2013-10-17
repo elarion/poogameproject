@@ -1,9 +1,9 @@
 <?php
 
-	class UserController
+	class GameController
 	{
 		public function startAction()
 		{
-			
+
 		}
 	}

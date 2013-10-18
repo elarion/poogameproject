@@ -1,6 +1,7 @@
 <?php
 
 abstract class Champion extends Table {
+    public static $class = array('Wizard', 'Warrior', 'Tank', 'Priest', 'Ranger');
     protected $error = array();
     protected $protect = FALSE;
     protected $buff = array();

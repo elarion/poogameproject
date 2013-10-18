@@ -2,6 +2,7 @@
 
 	class GameController
 	{
+
 		public function init_party()
 		{
             global $template;

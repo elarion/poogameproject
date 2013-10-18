@@ -5,7 +5,8 @@
 		//game
 		"init_party" => "game",
 		"battle" => "game",
+        'home' => "home"
 	);
 
 	// Action par défaut
-	$config["default"]["action"] = "init_party";
+	$config["default"]["action"] = "home";

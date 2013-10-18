@@ -22,7 +22,7 @@
             $user2->save_collections('champions');
             $n = rand(1,2);
             $alias = 'user'.$n;
-            $battle = new Battle(array('id_user_1' => $user1->id, 'id_user_2' => $user2->id, 'turn_is' => ${$alias}->id, 'action' => 'waiting'));
+            $battle = new Battle(array('id_user_1' => $user1->id, 'id_user_2' => $user2->id, 'turn_is' => ${$alias}->id));
             $battle->save();
             $_SESSION['battle'] = $battle->id;
             $template = 'battle';

@@ -34,6 +34,7 @@ Class Battle extends Table {
             if ($action == 'protect') {
                 $user_turn->protection();
             }
+            var_dump($this);
             if ($action != 'waiting') $advers->$receive_action($user_turn);
             $advers->save();
             $user_turn->save();

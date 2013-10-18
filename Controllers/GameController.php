@@ -39,8 +39,6 @@
             $action = $_POST['method'];
             $battle->round($id,$action);
             $template = 'battle';
-            var_dump($battle);
-            die();
             return array('user1' => $battle->user1, 'user2' => $battle->user2, 'turn_is' => $battle->turn_is, "champion_user1" => $user1->get_collection('champions'), "champion_user2" => $user2->get_collection('champions'));
         }
 	}

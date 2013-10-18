@@ -258,4 +258,9 @@ abstract class Table
             }
     }
 
+    public function get_collections($col) {
+        if (isset($this->collections[$col])) return $this->collections[$col];
+        return NULL;
+    }
+
 }

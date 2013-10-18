@@ -51,6 +51,7 @@ header h1
     -moz-box-sizing: border-box;
     width: 450px;
     float: left;
+
 }
 
 span.player
@@ -58,6 +59,11 @@ span.player
     display: block;
     font-family: Impact, Arial, sans-serif;
     font-size: 25px;
+    color: #3C3C3B;
+}
+
+span.current_player
+{
     color: #E30613;
 }
 
@@ -117,4 +123,104 @@ span.player
 .hp
 {
     float: right;
+}
+
+.j1
+{
+    float: left;
+}
+
+.j2
+{
+    float: right;
+}
+
+.j1, .j2
+{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 450px;
+}
+
+.center div form span
+{
+    display: block;
+    margin-bottom: 10px;
+}
+
+.center div form span input[type="radio"]
+{
+    visibility: hidden;
+    opacity: 0;
+    display: none;
+}
+
+.center div form input[type="submit"]
+{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 40px;
+    width: 100%;
+    border: 0;
+    text-align: center;
+    background-color: #E30613;
+    color: #FFF;
+    font-family: Impact, Arial, sans-serif;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.center div form input[type="submit"]:hover
+{
+    background-color: #ff0613;
+}
+
+.center div form span label
+{
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    padding-top: 7px;
+    display: inline-block;
+    height: 40px;
+    width: 100%;
+    text-align: center;
+    background-color: #232322;
+    color: #FFF;
+    font-family: Impact, Arial, sans-serif;
+    font-size: 25px;
+    cursor: pointer;
+}
+
+.center div form span label:hover
+{
+    background-color: #282827;
+}
+
+.center div form span input[type="radio"]:checked + label
+{
+    background-color: #E30613;
+    cursor: default;
+}
+
+.j1_result
+{
+    float: left;
+}
+
+.j2_result
+{
+    float: right;
+}
+
+.j1_result, .j2_result
+{
+    padding-top: 10px;
+    display: block;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 450px;
+    text-align: center;
+    font-family: Impact, Arial, sans-serif;
+    font-size: 25px;
+    color: #E30613;
 }

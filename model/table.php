@@ -154,7 +154,7 @@ abstract class Table
     {
         if (empty($this->fields[$this->primaryKey]['value']))
             die (get_called_class().': cannot hydrate without primary key value');
-        if ($unique !=== NULL) {
+        if ($unique !== NULL) {
             foreach ($unique as $key => $value) {
                 $field = $key;
                 $val = $value;
@@ -162,7 +162,7 @@ abstract class Table
         }
         else {
             $key = $this->primaryKey;
-            $val = .intval($this->fields[$primaryKey]['value']);
+            $val = intval($this->fields[$primaryKey]['value']);
         }
         $q = "SELECT * FROM `".static::$tableName."` WHERE `".$field."` = "."'".$val."'";
         $data = myFetchAssoc($q);

@@ -32,7 +32,7 @@ if (!array_key_exists($action, $config['routes'])) {
 }
 
 // Instanciation du controller et appel de l'action
-$method = $action.'Action';
+$method = $action;
 $controller = ucfirst($config['routes'][$action]).'Controller';
 ${$config['routes'][$action]} = NULL;
 
@@ -51,13 +51,13 @@ if (!empty($action)) {
 
 include_once('./view/main.php');
 
-$u = new User(array('pseudo' => 'portier'));
-$u->save();
-$champions = new Warrior();
-$champions->save();
-$u->add_champion($champions);
-$u->save_collections('champions');
-var_dump($u);
+// $u = new User(array('pseudo' => 'portier'));
+// $u->save();
+// $champions = new Warrior();
+// $champions->save();
+// $u->add_champion($champions);
+// $u->save_collections('champions');
+// var_dump($u);
 
 
 

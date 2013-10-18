@@ -7,11 +7,11 @@
     <div class="center">
         <span class="player current_player">
             <?php echo($var['user1']->pseudo); ?> (<?php echo($var['champion_user1'][0]->name); ?>)
-            <span class="hp"><?php echo($var['champion_user1'][0]->health); ?>HP</span>
+            <span class="hp"><?php echo($var['champion_user1'][0]->health); ?></span>
         </span>
         <span class="player player2">
             <?php echo($var['user2']->pseudo); ?> (<?php echo($var['champion_user2'][0]->name); ?>)
-            <span class="hp"><?php echo($var['champion_user2'][0]->health); ?>HP</span>
+            <span class="hp"><?php echo($var['champion_user2'][0]->health); ?></span>
         </span>
     </div>
     <div class="clear"></div>

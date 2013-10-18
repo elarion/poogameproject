@@ -3,7 +3,7 @@ Class Warrior extends Champion {
 
     function __construct()
     {
-        parent::__construct(array('strength' => 60, 'intelligence' => -50, 'health' => 0));
+        parent::__construct(array('strength' => 70, 'intelligence' => -50, 'health' => 0));
         $this->fill(array('name' => 'Riven'));
         $this->fill(array('classe' => 'Warrior'));
         $this->save();
@@ -20,7 +20,7 @@ Class Warrior extends Champion {
 
 	public function mainComp(Champion $enemy)
     {
-        $dmg = computed_abilities('strength') + 10;
+        $dmg = $this->computed_abilities('strength') + 10;
 
         $this->receive_attack(20);
         $enemy->receive_attack($dmg);

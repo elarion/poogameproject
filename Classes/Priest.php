@@ -4,7 +4,7 @@
 	    function __construct( )
 	    {
 	        parent::__construct(array('strength' => -10, 'intelligence' => 0, 'health' => 0));
-	        $this->fill(array('name' => 'Ash'));
+	        $this->fill(array('name' => 'Rosho'));
         	$this->fill(array('classe' => 'Priest'));
 	        $this->save();
 	        $this->add_weapons(new Weapon(array('name' => "Queen's staff", 'intelligence_bonus' => 20)));

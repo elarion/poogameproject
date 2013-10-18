@@ -34,11 +34,6 @@ header h1
     padding: 10px;
 }
 
-#player_wrapper
-{
-    margin-bottom: 10px;
-}
-
 .center
 {
     width: 900px;
@@ -51,7 +46,11 @@ header h1
     -moz-box-sizing: border-box;
     width: 450px;
     float: left;
+}
 
+#player table
+{
+    margin: auto;
 }
 
 span.player
@@ -67,12 +66,12 @@ span.current_player
     color: #E30613;
 }
 
-.player table tr:first-child td
+#player table tr:first-child td
 {
     padding-bottom: 10px;
 }
 
-.player table input
+#player table input
 {
     border: 0;
     height: 30px;
@@ -80,7 +79,7 @@ span.current_player
     padding-left: 5px;
 }
 
-.player table select
+#player table select
 {
     border: 0;
     height: 30px;

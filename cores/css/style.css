@@ -223,3 +223,76 @@ span.current_player
     font-size: 25px;
     color: #E30613;
 }
+
+#players_waiting
+{
+    display: block;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #FFF;
+    font-family: Impact, Arial, sans-serif;
+    font-size: 25px;
+}
+
+#list_players
+{
+    width: 500px;
+    background-color: #FFFFFF;
+    border: 2px solid #272726;
+}
+
+#list_players li
+{
+    display: block;
+    padding: 20px;
+    border-bottom: 1px solid #ebebeb;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+#list_players li:hover
+{
+    background-color: #f5f5f5;
+}
+
+#list_players li span
+{
+    float: right;
+    padding: 5px 10px;
+    background-color: #E30613;
+    color: #FFF;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    cursor: pointer;
+
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+#list_players li span:hover
+{
+    background-color: #ff0613;
+}
+
+#pos
+{
+    margin: auto;
+    width: 500px;
+    position: relative;
+}
+
+#pop
+{
+    background-color: #FFFFFF;
+    border: 2px solid #272726;
+    width: 250px;
+    height: 0;
+    display: none;
+
+    position: absolute;
+    top: 0;
+    left: 520px;
+}

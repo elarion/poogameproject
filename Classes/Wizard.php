@@ -20,7 +20,7 @@ Class Wizard extends Champion {
 
 	public function mainComp(Champion $enemy)
     {
-        $dmg = computed_abilities('intelligence') + 10;
+        $dmg = $this->computed_abilities('intelligence') + 10;
 
         $this->receive_attack(20);
         $enemy->receive_attack($dmg);

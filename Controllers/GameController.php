@@ -36,6 +36,7 @@
             $battle->save();
             $_SESSION['battle'] = $battle->id;
             $template = 'battle';
+
             return array('user1' => $user1, 'user2' => $user2, 'turn_is' => $battle->turn_is, "champion_user1" => $user1->get_collection('champions'), "champion_user2" => $user2->get_collection('champions'));
 		}
 
@@ -45,11 +46,12 @@
             $id_battle = $_SESSION['battle'];
             $battle = new Battle(array('id' => $id_battle));
             $battle->users_in_battle();
+            var_dump($battle->action);
             $id = $_POST['id_user'];
             $action = $_POST['method'];
             $battle->round($id,$action);
             $template = 'battle';
 
-            return array('user1' => $battle->user1, 'user2' => $battle->user2, 'turn_is' => $battle->turn_is, "champion_user1" => $user1->get_collection('champions'), "champion_user2" => $user2->get_collection('champions'));
+            return array('user1' => $battle->user_1, 'user2' => $battle->user_2, 'turn_is' => $battle->turn_is, "champion_user1" => $battle->user_1->get_collection('champions'), "champion_user2" => $battle->user_2->get_collection('champions'));
         }
 	}

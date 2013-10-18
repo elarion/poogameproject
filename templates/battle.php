@@ -5,20 +5,20 @@
 </header>
 <div id="player_wrapper">
     <div class="center">
-        <span class="player<?php if ($var['turn_is'] == $var['user1']->id) { ?> current_player<?php } ?>">
-            <?php echo($var['user1']->pseudo); ?> (<?php echo($var['champion_user1'][0]->name); ?>)
-            <span class="hp"><?php echo($var['champion_user1'][0]->health); ?>HP</span>
-        </span>
-        <span class="player player2<?php if ($var['turn_is'] == $var['user2']->id) { ?> current_player<?php } ?>">
-            <?php echo($var['user2']->pseudo); ?> (<?php echo($var['champion_user2'][0]->name); ?>)
-            <span class="hp"><?php echo($var['champion_user2'][0]->health); ?>HP</span>
-        </span>
+                <span class="player">
+                    <?php echo($var['user1']->pseudo); ?> (<?php echo($var['champion_user1'][0]->name); ?>)
+                    <span class="hp"><?php echo($var['champion_user1'][0]->health); ?></span>
+                </span>
+                <span class="player player2">
+                    <?php echo($var['user2']->pseudo); ?> (<?php echo($var['champion_user2'][0]->name); ?>)
+                    <span class="hp"><?php echo($var['champion_user2'][0]->health); ?></span>
+                </span>
     </div>
     <div class="clear"></div>
 </div>
 <div id="form_wrapper">
     <div class="center">
-        <div class="j1" id="player1">
+        <div class="player" id="player1">
             <?php if ($var['turn_is'] == $var['user1']->id) { ?>
                 <form action="?action=action" method="post">
                     <span>

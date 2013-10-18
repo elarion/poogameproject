@@ -26,6 +26,12 @@ abstract class Table
 
     }
 
+    public function fill (array $fields) {
+        foreach ($fields as $key => $field) {
+            $this->fields[$key]['value'] = $field;
+        }
+    }
+
     public function __set($name, $value)
     {
         if (in_array($name, $this->fillable)) $this->fields[$name]['value'] = $value;

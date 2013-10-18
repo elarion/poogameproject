@@ -17,11 +17,7 @@ abstract class Champion extends Table {
 
     }
 
-    public function fill (array $fields) {
-        foreach ($fields as $key => $field) {
-            $this->fields[$key]['value'] = $field;
-        }
-    }
+
 
     public function add_weapons(Weapon $weapon) {
        $this->collections['weapons'][] = $weapon;
@@ -63,6 +59,10 @@ abstract class Champion extends Table {
 
     public function protection() {
         $this->protect = TRUE;
+    }
+
+    public function no_protection() {
+        $this->protect = FALSE;
     }
     public function receive_attack($damage) {
         if ($this->protect) {

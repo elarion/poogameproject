@@ -197,7 +197,7 @@ abstract class Table
 
 
     private function collection($table) {
-        if ($model !== '') $field = ",".$model;
+
         $rel_table = substr($table, 0, strpos($table, "_"));
         $rel_table = substr($table,0,-1);
         $q = "SELECT id  FROM ".$table."WHERE ".$field." = ".$this->fields[$this->primaryKey]['value'];
@@ -256,6 +256,11 @@ abstract class Table
 
                 }
             }
+    }
+
+    public function  get_collection($col) {
+        if (isset($this->collections[$col])) return $this->collections[$col];
+        return NULL;
     }
 
 }

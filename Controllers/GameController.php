@@ -2,7 +2,7 @@
 
 	class GameController
 	{
-		public function startAction()
+		public function init_party()
 		{
 			if (!empty($_POST['pseudo'][0]) && !empty($_POST['pseudo'][1])) {
 				$players = array(
@@ -12,7 +12,7 @@
 
 				foreach ($players as $key => $player) {
 					if (!empty($player)) {
-						
+
 					} else {
 						// $u = new User(array("pseudo" => $_POST['pseudo'][$key]));
 						// var_dump($u);

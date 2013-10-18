@@ -11,6 +11,9 @@ Class Battle extends Table {
         parent::__construct($fields);
     }
 
+    public function init() {
+
+    }
     public function users_in_battle() {
         if (isset($this->fields['id']['value'])) {
             $this->hydrate(array('id' => $this->fields['id']['value']));
@@ -28,6 +31,7 @@ Class Battle extends Table {
     }
 
     public function round($id_user, $action) {
+            var_dump($this->user_1);
             $user_turn = ($this->user_1->fields['id']['value'] == $id_user ? $this->user_1 : $this->user_2);
             $advers = ($this->user_1->fields['id']['value'] == $id_user ? $this->user_2 : $this->user_1);
             $receive_action = $this->fields['action']['value'];

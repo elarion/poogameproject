@@ -4,6 +4,7 @@
 	$config["routes"] = array(
 		//game
 		"init_party" => "game",
+		"battle" => "game",
 	);
 
 	// Action par défaut

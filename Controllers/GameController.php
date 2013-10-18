@@ -24,6 +24,9 @@
 							$champions_key = $key;
 						}
 						$_SESSION[$user->id] = array("champions_key" => $champions_key);
+						session_write_close();
+
+						header('location: index.php?action=battle');
 					} else {
 						$newUser = new User(array('pseudo' => $_POST['pseudo'][$key]));
 						$newUser->save();
@@ -35,10 +38,13 @@
 						$newUser->save_collections('champions');
 
 						$newUser->hydrate(array("id" => $newUser->fields['id']['value']));
-						foreach ($user->get_collections('champions') as $key => $champion) {
+						foreach ($newUser->get_collections('champions') as $key => $champion) {
 							$champions_key = $key;
 						}
 						$_SESSION[$user->id] = array("champions_key" => $champions_key);
+						session_write_close();
+
+						header('location: index.php?action=battle');
 					}
 				}
 			} else {

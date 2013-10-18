@@ -3,8 +3,8 @@
 	// routes
 	$config["routes"] = array(
 		//game
-		"start" => "game",
+		"init_party" => "game",
 	);
 
 	// Action par défaut
-	$config["default"]["action"] = "start";
+	$config["default"]["action"] = "init_party";

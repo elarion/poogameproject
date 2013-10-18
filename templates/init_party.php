@@ -16,7 +16,7 @@
 </div>
 <div id="form_wrapper">
     <div class="center">
-        <form action="?action=auth" method="post">
+        <form action="?action=init_party" method="post">
             <div class="player" id="player1">
                 <table>
                     <tr>

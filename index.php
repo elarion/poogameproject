@@ -1,4 +1,5 @@
 <?php
+session_start();
 function instance ($class) {
 	$paths = array("classes" => "./Classes/".ucfirst($class).".php",
 				   "model" => "./model/".strtolower($class).".php",
@@ -44,10 +45,8 @@ if (method_exists(${$config['routes'][$action]}, $method)) {
 	$var = ${$config['routes'][$action]}->$method();
 }
 
-// Init du template
-if (!empty($action)) {
-	$template = './templates/'.$action.'.php';
-}
+// set template
+$path = './templates/'.$template.'.php';
 
 include_once('./view/main.php');
 

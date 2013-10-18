@@ -2,8 +2,8 @@
 
     include_once('./templates/head.php');
 
-    if (file_exists($template) && is_file($template)) {
-        include_once($template);
+    if (file_exists($path) && is_file($path)) {
+        include_once($path);
     }
 
     include_once('./templates/footer.php');

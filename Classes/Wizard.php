@@ -6,6 +6,7 @@ Class Wizard extends Champion {
     {
         parent::__construct(array('strength' => -20, 'intelligence' => 50, 'health' => 0));
         $this->fill(array('name' => 'Veigar'));
+        $this->fill(array('classe' => 'Wizard'));
         $this->save();
         $this->add_weapons(new Weapon(array('name' => "Street's wand",'intelligence_bonus' => 10)));
         $this->save_collections('weapons');

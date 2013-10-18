@@ -5,6 +5,7 @@ Class Warrior extends Champion {
     {
         parent::__construct(array('strength' => 60, 'intelligence' => -50, 'health' => 0));
         $this->fill(array('name' => 'Riven'));
+        $this->fill(array('classe' => 'Warrior'));
         $this->save();
         $this->add_weapons(new Weapon(array('name' => 'Axe of doom','strength_bonus' => 10)));
         $this->save_collections('weapons');

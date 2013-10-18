@@ -1,10 +1,11 @@
 <?php
 
-	class Ranger extends Champions {
+	class Ranger extends Champion {
 	    function __construct( )
 	    {
 	        parent::__construct(array('strength' => 0, 'intelligence' => -50, 'health' => 0));
 	        $this->fill(array('name' => 'Ash'));
+       	 	$this->fill(array('classe' => 'Ranger'));
 	        $this->save();
 	        $this->add_weapons(new Weapon(array('name' => 'Bow of sacrifice', 'strength_bonus' => 20)));
 	        $this->save_collections('weapons');

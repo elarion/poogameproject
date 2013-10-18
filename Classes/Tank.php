@@ -20,7 +20,7 @@ Class Tank extends Champion {
 
 	public function mainComp(Champion $enemy)
     {
-        $dmg = $this->computed_abilities('strength') + floor($this->fields['strengh']['value']/6);
+        $dmg = $this->computed_abilities('strength') + floor($this->fields['strength']['value']/6);
 
         $this->receive_attack(20);
         $enemy->receive_attack($dmg);

@@ -31,7 +31,6 @@ Class Battle extends Table {
     }
 
     public function round($id_user, $action) {
-            var_dump($this->user_1);
             $user_turn = ($this->user_1->fields['id']['value'] == $id_user ? $this->user_1 : $this->user_2);
             $advers = ($this->user_1->fields['id']['value'] == $id_user ? $this->user_2 : $this->user_1);
             $receive_action = $this->fields['action']['value'];

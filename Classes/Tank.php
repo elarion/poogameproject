@@ -12,16 +12,16 @@ Class Tank extends Champion {
 
     public function secondaryComp(Champion $enemy)
     {
-        $this->fields['health']['value'] += 20;
+        $this->fields['strengh']['value'] += 20;
         $dmg = $this->computed_abilities('strength');
         $enemy->receive_attack($dmg);
     }
 
 	public function mainComp(Champion $enemy)
     {
-        $dmg = $this->computed_abilities('strength') + floor($this->fields['health']['value']/6);
+        $dmg = $this->computed_abilities('strength') + floor($this->fields['strengh']['value']/6);
 
-        $this->receive_attack(100);
+        $this->receive_attack(20);
         $enemy->receive_attack($dmg);
     }
 

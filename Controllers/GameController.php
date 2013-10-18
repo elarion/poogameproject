@@ -13,20 +13,21 @@
             $user1 = new User(array('pseudo' => $user1_name));
             $user1->save();
             $user1_champ = new $user1_class();
-            $user1->add_collection($user1_champ);
+            $user1->add_collection($user1_champ, 'champions');
             $user1->save_collections('champions');
             $user2 = new User(array('pseudo' => $user2_name));
             $user2->save();
             $user2_champ = new $user2_class();
-            $user2->add_collection($user2_champ);
+            $user2->add_collection($user2_champ, 'champions');
             $user2->save_collections('champions');
             $n = rand(1,2);
-            $battle = new Battle(array('id_user_1' => $user1->id, 'id_user_2' => $user2->id, 'turn_is' => $user{$n}->id));
+            $alias = 'user'.$n;
+            $battle = new Battle(array('id_user_1' => $user1->id, 'id_user_2' => $user2->id, 'turn_is' => ${$alias}->id));
             $battle->save();
             $_SESSION['battle'] = $battle->id;
             $template = 'battle';
+            return array('user1' => $user1, 'user1' => $user2, 'turn_is' => $battle->turn_is);
 		}
-
 
         public function action() {
             global $template;
@@ -37,5 +38,6 @@
             $action = $_POST['action'];
             $battle->round($id,$action);
             $template = 'battle';
+            return array('user1' => $battle->user1, 'user1' => $battle->user2, 'turn_is' => $battle->turn_is);
         }
 	}

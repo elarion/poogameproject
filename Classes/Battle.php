@@ -3,6 +3,7 @@
 Class Battle extends Table {
     public $user_1;
     public $user_2;
+    protected static $tableName = "battles";
     function __construct(array $fields) {
         $this->fillable = array('id','id_user_1','id_user_2','turn','turn_is', 'action' );
         $this->relation = array('id_user_1' => 'users', 'id_user_2' => 'users');
@@ -35,7 +36,7 @@ Class Battle extends Table {
             if ($action !== 'waiting') $advers->$receive_action($user_turn);
             $advers->save();
             $user_turn->save();
-            $this->fill(array('turn_is' => $advers, 'action' => $action));
+            $this->fill(array('turn_is' => $advers->id, 'action' => $action));
             $this->save();
     }
 

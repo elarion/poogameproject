@@ -41,7 +41,7 @@ if (!is_object(${$config['routes'][$action]})) {
 }
 
 if (method_exists(${$config['routes'][$action]}, $method)) {	
-	${$config['routes'][$action]}->$method();
+	$var = ${$config['routes'][$action]}->$method();
 }
 
 // Init du template

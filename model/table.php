@@ -83,7 +83,7 @@ abstract class Table
         if(!empty($this->fields[$pk]['value'])) // UPDATE
         {
             $nbFields = $this->count_save_field($this->fields);
-            var_dump($nbFields);
+
             $counter = 0;
 
             $query = "UPDATE `".static::$tableName."` SET";
@@ -227,7 +227,6 @@ abstract class Table
             $val = $unique;
         }
         $q = "SELECT * FROM ".static::$tableName." WHERE ". $key ." = '". $val . "'";
-        var_dump(static::$tableName);
         $data = myFetchAssoc($q);
         if ($data == NULL) return NULL;
         $class = substr(static::$tableName, 0 , -1);
@@ -236,12 +235,12 @@ abstract class Table
 
     }
 
-    public function add_collection(Table $instance) {
-        $class_name = get_class_name($instance);
-        $this->collections[$class_name][] = $instance;
+    public function add_collection(Table $instance, $col) {
+        $this->collections[$col][] = $instance;
     }
 
     public function save_collections($col) {
+
             if ( $collec = $this->collections[$col]) {
                 //var_dump($this->relations);
                 if (empty($this->fields[$this->primaryKey]['value'])) $this->save();

@@ -9,6 +9,11 @@
     visibility: hidden;
 }
 
+body
+{
+    background: url('../img/motif.png') left top;
+}
+
 header
 {
     padding: 30px 0;
@@ -23,6 +28,8 @@ header h1
 
 #form_wrapper
 {
+    border-top: 2px solid #272726;
+    border-bottom: 2px solid #272726;
     background-color: #3C3C3B;
     padding: 10px;
 }
@@ -105,4 +112,9 @@ span.player
 #form_init_submit:hover
 {
     background-color: #ff0613;
+}
+
+.hp
+{
+    float: right;
 }

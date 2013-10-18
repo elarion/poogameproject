@@ -3,7 +3,7 @@ Class User extends Table {
     protected static $tableName = 'users';
     public function __construct(Array $fields) {
         $this->relation = array('champions' => 'champions_has_users');
-        $this->fillable = array('id','pseudo');
+        $this->fillable = array('id','pseudo', 'id_session');
 
         parent::__construct($fields);
     }
@@ -28,5 +28,18 @@ Class User extends Table {
                 $this->collections['champions'][] = $instance;
             }
         }
+    }
+
+    public function get_connected_users() {
+        $q = "SELECT id_session FROM sessions";
+        $datas = myFetchAllAssoc($q);
+        $connected_users = array();
+        foreach ($datas as $data) {
+            if (isset($this->fields['id_session']['value']) && $this->fields['id_session']['value'] == $data['id_session']) continue;
+              $q = "SELECT * FROM users WHERE id_session = ".$data['id_session'];
+              $res = myFetchAssoc($q);
+              $connected_users[] = new User($res);
+        }
+        return $connected_users;
     }
 }

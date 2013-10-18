@@ -27,6 +27,11 @@ header h1
     padding: 10px;
 }
 
+#player_wrapper
+{
+    margin-bottom: 10px;
+}
+
 .center
 {
     width: 900px;
@@ -45,6 +50,7 @@ span.player
 {
     display: block;
     font-family: Impact, Arial, sans-serif;
+    font-size: 25px;
     color: #E30613;
 }
 
@@ -81,4 +87,22 @@ span.player
     letter-spacing: 1px;
     font-size: 14px;
     color: #FFF;
+}
+
+#form_init_submit
+{
+    display: block;
+    padding: 3px 30px;
+    margin: 15px auto 0 auto;
+    background-color: #E30613;
+    font-family: Impact, Arial, sans-serif;
+    font-size: 25px;
+    color: #FFF;
+    border: 0;
+    cursor: pointer;
+}
+
+#form_init_submit:hover
+{
+    background-color: #ff0613;
 }

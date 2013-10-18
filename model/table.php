@@ -154,7 +154,7 @@ abstract class Table
     {
         if (empty($this->fields[$this->primaryKey]['value']))
             die (get_called_class().': cannot hydrate without primary key value');
-        if ($unique !=== NULL) {
+        if ($unique !== NULL) {
             foreach ($unique as $key => $value) {
                 $field = $key;
                 $val = $value;
@@ -162,7 +162,7 @@ abstract class Table
         }
         else {
             $key = $this->primaryKey;
-            $val = .intval($this->fields[$primaryKey]['value']);
+            $val = intval($this->fields[$this->primaryKey]['value']);
         }
         $q = "SELECT * FROM `".static::$tableName."` WHERE `".$field."` = "."'".$val."'";
         $data = myFetchAssoc($q);
@@ -200,7 +200,7 @@ abstract class Table
         if ($model !== '') $field = ",".$model;
         $rel_table = substr($table, 0, strpos($table, "_"));
         $rel_table = substr($table,0,-1);
-        $q = "SELECT id  FROM ".$table."WHERE ".$field." = ".$this->$primaryKey;
+        $q = "SELECT id  FROM ".$table."WHERE ".$field." = ".$this->fields[$this->primaryKey]['value'];
         $data = myFetchAllAssoc($q);
         $collection = array();
         foreach ($data as $field) {
@@ -237,7 +237,7 @@ abstract class Table
     }
 
     public function add_collection(Table $instance) {
-        $class_name = get_class_name($col);
+        $class_name = get_class_name($instance);
         $this->collections[$class_name][] = $instance;
     }
 

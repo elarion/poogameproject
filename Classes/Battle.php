@@ -31,16 +31,23 @@ Class Battle extends Table {
     }
 
     public function round($id_user, $action) {
-            var_dump($this->user_1);
+
             $user_turn = ($this->user_1->fields['id']['value'] == $id_user ? $this->user_1 : $this->user_2);
             $advers = ($this->user_1->fields['id']['value'] == $id_user ? $this->user_2 : $this->user_1);
-            $receive_action = $this->fields['action']['value'];
-            if ($action == 'protect') {
-                $user_turn->protection();
+            $before_action = $this->fields['action']['value'];
+
+            // SPECIFIQUE : user a UN champion, a changer lors des steps suivant
+            $champ = $user_turn->get_collection('champions');
+            $champ = $champ[0];
+            $champ_advers = $advers->get_collection('champions');
+            $champ_advers = $champ_advers[0];
+            if ($before_action == 'protect') {
+                $champ_advers->protection();
             }
-            if ($action != 'waiting') $advers->$receive_action($user_turn);
-            $advers->save();
-            $user_turn->save();
+            if ($action !== "protect") $champ->$action($champ_advers);
+
+            $champ->save();
+            $champ_advers->save();
             $this->fill(array('turn_is' => $advers->id, 'action' => $action));
             $this->save();
     }

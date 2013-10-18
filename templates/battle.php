@@ -22,7 +22,7 @@
             <?php if ($var['turn_is'] == $var['user1']->id) { ?>
                 <form action="?action=action" method="post">
                     <input type="radio" name="method" value="attack" />Attack<br>
-                    <input type="radio" name="method" value="protection" />Protect<br>
+                    <input type="radio" name="method" value="protect" />Protect<br>
                     <input type="radio" name="method" value="heal" />Heal<br>
                     <input type="radio" name="method" value="mainComp" />mainComp<br>
                     <input type="radio" name="method" value="secondaryComp" />secondaryComp<br>
@@ -35,7 +35,7 @@
             <?php if ($var['turn_is'] == $var['user2']->id) { ?>
                 <form action="?action=action" method="post">
                     <input type="radio" name="method" value="attack"/>Attack<br>
-                    <input type="radio" name="method" value="protection"/>Protect<br>
+                    <input type="radio" name="method" value="protect"/>Protect<br>
                     <input type="radio" name="method" value="heal"/>Heal<br>
                     <input type="radio" name="method" value="mainComp"/>mainComp<br>
                     <input type="radio" name="method" value="secondaryComp"/>secondaryComp<br>

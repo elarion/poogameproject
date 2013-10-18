@@ -1,22 +1,22 @@
 <header>
     <h1>
-        <img src="./cores/img/logoPOO.png">
+        <img src="img/logoPOO.png">
     </h1>
 </header>
 <div id="player_wrapper">
     <div class="center">
-        <span class="player">
-            JOUEUR 1
-        </span>
-        <span class="player player2">
-            JOUEUR 2
-        </span>
+                <span class="player">
+                    JOUEUR 1
+                </span>
+                <span class="player player2">
+                    JOUEUR 2
+                </span>
     </div>
     <div class="clear"></div>
 </div>
-<div id="form_wrapper">
-    <div class="center">
-        <form action="?action=init_party" method="post">
+<form action="?action=auth" method="post">
+    <div id="form_wrapper">
+        <div class="center">
             <div class="player" id="player1">
                 <table>
                     <tr>
@@ -55,11 +55,9 @@
                     </tr>
                 </table>
             </div>
-            <div>
-                <input type="submit" value="START" />
-            </div>
-        </form>
+            <div class="clear"></div>
+        </div>
         <div class="clear"></div>
     </div>
-    <div class="clear"></div>
-</div>
+    <input type="submit" value="START" id="form_init_submit"/>
+</form>
